@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="p-0 mt-2 mr-2 d-flex flex-column"
+        *ngIf="canUpload && (maxUpload == -1 || maxUpload > filesList.length)&& (totalFilesSize < maxSize)">
+        <div class="w-100">
+            <input hidden id="input-file-id-{{ appenedName }}" [multiple]="isMulti" type="file" id="inputImageFile"
+                (change)="onFileSelected($event)" [accept]="acceptType" #inputImageFile />
+            <button mat-flat-button (click)="inputImageFile.click()" class="col-12 btn-stroke btn-default-size"
+                [disabled]="disabled">
+                <mat-icon> attach_file</mat-icon> {{label? label: 'Upload Image'}}
+            </button>
+        </div>
+        <!-- (Maximum upload file size: 5 MB.) -->
+        <div class="w-100 label-msg" *ngIf="!isShowErr && showLabelSize">{{ labelDetail ? labelDetail : '(Maximum upload file size: 5 MB.)'}}</div>
+        <mat-error class="w-100 error-msg" *ngIf="isShowErr">{{errorMsg}}</mat-error>
+    </div>
+    <div class="col p-0 mt-3" *ngIf="isEdit">
+        <div *ngFor="let item of filesList; let i = index">
+            <div class="mb-2">
+                <div class="row d-flex align-items-center">
+                    <div class="p-0 col-12">
+                        <div class="file-bg">
+                            <div class="row">
+                                <span *ngIf="!hideDelete" style="width: auto">
+                                    <!-- svgIcon="cancel" -->
+                                    <mat-icon matPrefix class="mr-1 cursor-pointer"
+                                        *ngIf="(canDeleteOld || (!canDeleteOld && i >= cantDelListSize))"
+                                        (click)="onDelete(item.fileId, i)">close</mat-icon>
+                                </span>
+                                <div class="word-break p-0 col mt-1" *ngIf="!canDownload || item.fileId == 0">
+                                    {{item.fileName}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col p-0" *ngIf="!isEdit">
+        <div class="row">
+
+            <div class="d-none d-md-flex col-md-3 col-lg-3 col-xl-3 image pl-1 pr-1"
+                *ngFor="let item of filesList; let i = index">
+                <img *ngIf="item.fileId != 0" class="mt-2 mb-2 w-100" [src]="getFileFromData(item.fileUrl)">
+                <img [src]="item.fileUrl" height="100" class="mt-2 mb-2 w-100" *ngIf="item.fileId == 0">
+            </div>
+            <div class="d-block d-md-none col-12 image pl-1 pr-1" *ngFor="let item of filesList; let i = index">
+                <img *ngIf="item.fileId != 0" class="mt-2 mb-2 w-100" [src]="getFileFromData(item.fileUrl)">
+                <img [src]="item.fileUrl" height="100" class="mt-2 mb-2 w-100" *ngIf="item.fileId == 0">
+            </div>
+
+            <!-- <div class="image pl-1 pr-1 col-3" *ngFor="let item of filesList; let i = index">
+        <img *ngIf="item.fileId != 0" class="mt-2 mb-2 w-100" [src]="getFileFromData(item.fileUrl)">
+        <img [src]="item.fileUrl" height="100" class="mt-2 mb-2 w-100" *ngIf="item.fileId == 0">
+
+      </div> -->
+            <!-- <mat-icon matSuffix *ngIf="(canDeleteOld || (!canDeleteOld && i >= cantDelListSize))"
+          class="cursor-pointer del-btn" svgIcon="delete_file" (click)="onDelete(item.fileId, i)"></mat-icon> -->
+
+
+
+        </div>
+    </div>
+
+</div>

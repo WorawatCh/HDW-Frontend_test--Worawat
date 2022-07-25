@@ -1,0 +1,17 @@
+<div class="dialog-container dialog-25vw">
+    <div mat-dialog-title class="title-dialog">
+        <div class="row m-0">
+            <div class="col-10 mt-3 d-flex align-items-center">Confirm</div>
+        </div>
+
+    </div>
+    <div mat-dialog-content>
+        <p class="content-dialog mt-3" cdkFocusInitial>Are you sure you want to <strong>cancel</strong>?
+        </p>
+    </div>
+    <div mat-dialog-actions class="mb-1 d-flex align-items-center justify-content-center">
+        <button mat-flat-button mat-dialog-close (click)="onConfirm()"
+            class="btn-color btn-default-size mt-2 mr-2">Yes</button>
+        <button mat-stroked-button (click)="onClose()" class="btn-default-size mt-2 btn-stroke">No</button>
+    </div>
+</div>

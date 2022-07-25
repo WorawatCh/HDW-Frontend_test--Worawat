@@ -1,0 +1,25 @@
+.input-field ::ng-deep .mat-form-field-infix {
+    padding-bottom: 0.3em !important;
+    padding-top: 0.2em !important;
+}
+
+.input-field ::ng-deep.mat-form-field-wrapper {
+    padding-bottom: 1em !important;
+}
+
+.input-field ::ng-deep.mat-form-field-label-wrapper {
+    top: 0em;
+    padding-top: 0.1em;
+}
+
+.input-field ::ng-deep.mat-form-field-subscript-wrapper {
+    top: 3.1em;
+}
+.input-field {
+    margin-top: -0.1em;
+    padding-bottom: 1em;
+}
+
+.word-break {
+    word-break: break-word;
+}

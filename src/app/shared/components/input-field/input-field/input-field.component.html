@@ -1,0 +1,11 @@
+<div class="word-break">
+    {{label}}<span *ngIf="required" class="require-field">*</span>
+</div>
+<mat-form-field class="w-100 input-field" hideRequiredMarker [formGroup]="form" floatLabel="never" appearance="outline">
+    <input matInput [type]="type" [placeholder]="placeholder" [value]="value" [(ngModel)]="inputModel"
+        [title]="(!inputModel?label: inputModel)" (ngModelChange)="inputModelChange.emit(inputModel)"
+        [maxlength]="maxlength" formControlName="inputField" (keydown)="onValueChangeValidate($event)"
+        (keyup)="somethingChanged($event)" autocomplete="off">
+    <mat-error *ngIf="form.get('inputField').hasError('required')">{{errorMessage}}</mat-error>
+    <mat-error *ngIf="form.get('inputField').hasError('pattern')">{{errorPattern}}</mat-error>
+</mat-form-field>

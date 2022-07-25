@@ -1,0 +1,15 @@
+<div>
+    <div class="font-label">
+        {{label}}
+    </div>
+    <div *ngIf="value != ''&& value != null && value != '0.00' && value != undefined; else nullValue"
+        [class]="styleValue">
+        <div class="new-line-label">{{value}}</div>
+    </div>
+
+    <ng-template #nullValue>
+        <div [class]="styleValue">
+            <div>-</div>
+        </div>
+    </ng-template>
+</div>

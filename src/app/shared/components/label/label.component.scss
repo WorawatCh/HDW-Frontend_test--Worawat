@@ -1,0 +1,79 @@
+.word-break {
+    word-break: break-word;
+}
+.font-label {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.font-gray {
+    color: #a0a0a0;
+}
+
+.ellipsis-100 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+}
+
+.ellipsis-150 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+}
+
+.ellipsis-200 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+}
+
+.ellipsis-250 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
+}
+
+.ellipsis-300 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
+}
+
+.ellipsis-500 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 500px;
+}
+
+.content-ellipsis-100percent {
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-grey {
+    color: #a0a0a0;
+}
+
+.new-line-label {
+    white-space: pre-wrap;
+}
+
+.text-red {
+    color: red;
+}
+
+.abnormal-unit {
+    color: #E87244;
+}
